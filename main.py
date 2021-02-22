@@ -16,14 +16,26 @@ def show_pages():
     """
     core functions to create the pages/box/objects to do jobs
     """
-    pass
+    windowlistbox = Tk()
+    windowlistbox.title('The ')
+    windowlistbox.geometry('800x800')
+    windowlistbox.configure(bg='grey')
 
+    title = Label(windowlistbox, text = 'Please choose your name')
+    title.place(x = 40, y = 40)
+    # title.configure(bg = 'pink')
+
+
+
+
+    # Create a label
 
 def check(name, password, loginwindow):
-    name     = name.get()
     password = password.get()
-    if name == "Steven" and password == "123":
-        messagebox.showinfo("Login Success ", "The Test Start!")
+    name     = name.get()
+    if True:
+    # if name == "Steven" and password == "123":
+        messagebox.showinfo("Login Success ", "The Test Start! ")
         # step 1: quit the loginwindow
         # so I did a google search, and found NOTE destroy command
         loginwindow.destroy()
@@ -31,9 +43,6 @@ def check(name, password, loginwindow):
         show_pages()
     else:
         messagebox.showerror("Error","Your name or password is wrong")
-
-    # second step, show test paste page
-
 
     # third step
 
