@@ -10,15 +10,25 @@ from tkinter import *
 from functools import partial
 from tkinter import messagebox
 
+
+# The function
+def show_pages():
+    """
+    core functions to create the pages/box/objects to do jobs
+    """
+    pass
+
+
 def check(name, password, loginwindow):
     name     = name.get()
     password = password.get()
     if name == "Steven" and password == "123":
         messagebox.showinfo("Login Success ", "The Test Start!")
         # step 1: quit the loginwindow
-        # so I did a google search, and found destroy command
+        # so I did a google search, and found NOTE destroy command
         loginwindow.destroy()
         # step 2: create pages
+        show_pages()
     else:
         messagebox.showerror("Error","Your name or password is wrong")
 
