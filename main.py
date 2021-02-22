@@ -10,28 +10,35 @@ from tkinter import *
 from functools import partial
 from tkinter import messagebox
 
-def check(name, password):
+def check(name, password, loginwindow):
     name     = name.get()
     password = password.get()
     if name == "Steven" and password == "123":
         messagebox.showinfo("Login Success ", "The Test Start!")
+        # step 1: quit the loginwindow
+        # so I did a google search, and found destroy command
+        loginwindow.destroy()
+        # step 2: create pages
     else:
         messagebox.showerror("Error","Your name or password is wrong")
-    # by taotao:  退出 messagebox
+
+    # second step, show test paste page
 
 
-
+    # third step
 
 def login_check():
     loginwindow=Tk()
     loginwindow.title('Login Window')
     loginwindow.geometry('400x400')
     loginwindow.configure(bg='pink')
-     # Create a label
-     # TO create alabel you can use this label class from tkinter
+    # Create a label
+    # TO create a label you can use this label class from tkinter
     name=Label(loginwindow,text='Name:')
     name.place(x=30,y=50)
     name.configure(bg='pink')
+
+
     # create another label to display password
     password = Label(loginwindow, text='Password:')
     password.place(x=30, y=90)
@@ -44,9 +51,9 @@ def login_check():
     password_entry.place(x=120, y=90)
 
     # create Button Object
-    login_B = Button(loginwindow, text='Login', command=partial(check, username_entry, password_entry))
+    login_B = Button(loginwindow, text = 'Login', command = partial(check, username_entry, password_entry, loginwindow)) #
     login_B.place(x=110, y=140)
-    Quit_B = Button(loginwindow, text='quit', command=exit)
+    Quit_B = Button(loginwindow, text = 'quit', command=exit)
     Quit_B.place(x=240, y=140)
 
 
@@ -54,9 +61,10 @@ mainwindow = Tk()  # This line will create an object of Tk class
 mainwindow.title('Test Login')  # title() function will help to st some title
 mainwindow.geometry('1000x1000')
 mainwindow.configure(bg='light GREY')  # configure() function will help to set some basic setting
-# Create an object of Button class
 
-login = Button(mainwindow, bg='blue', text='login', fg='black', font='15',width=18,height=5,
+
+login = Button(mainwindow,
+               bg='blue', text='login', fg='black', font='15', width=18, height=5,
                command=login_check)  # this will create an object of button class
 login.pack()
 mainwindow.mainloop()  # mianloop() function Will show the window
