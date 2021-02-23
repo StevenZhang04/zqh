@@ -43,9 +43,9 @@ def show_windowslistbox():
         chosen_name = str(list_box.get(list_box.curselection()[0]))
         if chosen_name == 'Steven':
             messagebox.showinfo(title=None, message = chosen_name + "  is the right one" )
+            # XXX
             show_windowsmulti()
             windowlistbox.destroy()
-            ## windows2
         else:
             messagebox.showinfo(title=None, message = chosen_name)
 
@@ -62,13 +62,12 @@ def show_windowsmulti():
 def check(name, password, loginwindow):
     password = password.get()
     name     = name.get()
-    if True:
-    # if name == "Steven" and password == "123":
+    # if True:
+    if name == "Steven" and password == "123":
         messagebox.showinfo("Login Success ", "The Test Start! ")
         # step 1: quit the loginwindow
         # so I did a google search, and found NOTE destroy command
         loginwindow.destroy()
-        # step 2: create pages
         show_windowslistbox()
     else:
         messagebox.showerror("Error","Your name or password is wrong")
