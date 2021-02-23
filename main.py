@@ -15,7 +15,7 @@ from tkinter import messagebox
 # The function
 def show_windowslistbox():
     """
-    core functions to create the pages/box/objects to do jobs
+    show_windowslistbox is the first page
     """
     #############  list_box show
     windowlistbox = Tk()
@@ -53,6 +53,9 @@ def show_windowslistbox():
 
 
 def show_windowsmulti():
+    """
+    show_windowslistbox is the second page
+    """
     print('show_windowsmulti')
 
 
