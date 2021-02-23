@@ -13,10 +13,11 @@ from tkinter import messagebox
 
 
 # The function
-def show_pages():
+def show_windowslistbox():
     """
     core functions to create the pages/box/objects to do jobs
     """
+    #############  list_box show
     windowlistbox = Tk()
     windowlistbox.title('The listbox windows')
     windowlistbox.geometry('800x800')
@@ -27,15 +28,32 @@ def show_pages():
     title.place(x = 40, y = 40)
 
     # add listbox
-    # https://blog.csdn.net/weixin_42272768/article/details/100796024
+    # NOTE: https://blog.csdn.net/weixin_42272768/article/details/100796024
     list_box = Listbox(windowlistbox, selectmode=tk.EXTENDED)
     list_box.place(x = 40, y = 100)
 
-
-    for name in range('Tao', 'Steven', 'Jack', 'Susan', 'Tom', 'Jerry':
+    for name in ['Tao', 'Steven', 'Jack', 'Susan', 'Tom', 'Jerry']:
         list_box.insert(tk.END, name)
 
+    # do loop until choose Steven
+    # target_name
+    def lb_click(event):
+        # print(event)
+        # messagebox.showinfo(title=None, message = str(list_box.index(list_box.curselection()[0])))
+        chosen_name = str(list_box.get(list_box.curselection()[0]))
+        if chosen_name == 'Steven':
+            messagebox.showinfo(title=None, message = chosen_name + "  is the right one" )
+            show_windowsmulti()
+            windowlistbox.destroy()
+            ## windows2
+        else:
+            messagebox.showinfo(title=None, message = chosen_name)
 
+    list_box.bind("<<ListboxSelect>>", lb_click)
+
+
+def show_windowsmulti():
+    print('show_windowsmulti')
 
 
 def check(name, password, loginwindow):
@@ -48,14 +66,14 @@ def check(name, password, loginwindow):
         # so I did a google search, and found NOTE destroy command
         loginwindow.destroy()
         # step 2: create pages
-        show_pages()
+        show_windowslistbox()
     else:
         messagebox.showerror("Error","Your name or password is wrong")
 
     # third step
 
 def login_check():
-    loginwindow=Tk()
+    loginwindow = Tk()
     loginwindow.title('Login Window')
     loginwindow.geometry('400x400')
     loginwindow.configure(bg='pink')
