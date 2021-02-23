@@ -6,6 +6,7 @@
 # Last Modified Date: 2021.02.22
 # Last Modified By  : taotao <taotao@myhexin.com>
 
+import tkinter as tk
 from tkinter import *
 from functools import partial
 from tkinter import messagebox
@@ -17,18 +18,25 @@ def show_pages():
     core functions to create the pages/box/objects to do jobs
     """
     windowlistbox = Tk()
-    windowlistbox.title('The ')
+    windowlistbox.title('The listbox windows')
     windowlistbox.geometry('800x800')
     windowlistbox.configure(bg='grey')
 
-    title = Label(windowlistbox, text = 'Please choose your name')
-    title.place(x = 40, y = 40)
-    # title.configure(bg = 'pink')
-
-
-
-
     # Create a label
+    title = Label(windowlistbox, text = 'What\' your name?')
+    title.place(x = 40, y = 40)
+
+    # add listbox
+    # https://blog.csdn.net/weixin_42272768/article/details/100796024
+    list_box = Listbox(windowlistbox, selectmode=tk.EXTENDED)
+    list_box.place(x = 40, y = 100)
+
+
+    for name in range('Tao', 'Steven', 'Jack', 'Susan', 'Tom', 'Jerry':
+        list_box.insert(tk.END, name)
+
+
+
 
 def check(name, password, loginwindow):
     password = password.get()
