@@ -6,7 +6,7 @@
 # Last Modified Date: 2021.02.22
 # Last Modified By  : taotao <taotao@myhexin.com>
 
-import tkinter as tk
+import tkinter as tktest
 from tkinter import *
 from functools import partial
 from tkinter import messagebox
@@ -59,9 +59,9 @@ def show_windowsmulti():
     print('show_windowsmulti')
 
 
-def check(name, password, loginwindow):
-    password = password.get()
-    name     = name.get()
+def check(name_entry, password_entry, loginwindow):
+    password = password_entry.get()
+    name     = name_entry.get()
     # if True:
     if name == "Steven" and password == "123":
         messagebox.showinfo("Login Success ", "The Test Start! ")
@@ -84,8 +84,6 @@ def login_check():
     name=Label(loginwindow,text='Name:')
     name.place(x=30,y=50)
     name.configure(bg='pink')
-
-
     # create another label to display password
     password = Label(loginwindow, text='Password:')
     password.place(x=30, y=90)
@@ -106,9 +104,8 @@ def login_check():
 
 mainwindow = Tk()  # This line will create an object of Tk class
 mainwindow.title('Test Login')  # title() function will help to st some title
-mainwindow.geometry('1000x1000')
+mainwindow.geometry('800x800')
 mainwindow.configure(bg='light GREY')  # configure() function will help to set some basic setting
-
 
 login = Button(mainwindow,
                bg='blue', text='login', fg='black', font='15', width=18, height=5,
